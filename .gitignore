@@ -1,14 +1,28 @@
+# thumbnails created by Windows
+Thumbs.db
+
+# files & directories created by Maven
+overlays/
+target/
+
+# files & directories created by IntelliJ
+.idea/
+*.iml
+
+# files & directories created by Eclipse
+.settings/
+*.classpath
+*.project
+*.tern-project
+
+# files & directories created by BlueJ
+*.ctxt
+
 # Compiled class file
 *.class
 
 # Log file
 *.log
-
-# BlueJ files
-*.ctxt
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
 
 # Package Files #
 *.jar
