@@ -2,6 +2,7 @@ package com.esolutions.trainings.ws;
 
 import com.esolutions.trainings.db.MatchRepository;
 import com.esolutions.trainings.logic.Match;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,11 +13,12 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class Controller {
+@Api(value = "Matches Resource")
+public class MatchesController {
 	private final MatchRepository matchRepository;
 
 	@Autowired
-	public Controller(MatchRepository matchRepository) {
+	public MatchesController(MatchRepository matchRepository) {
 		this.matchRepository = matchRepository;
 	}
 
