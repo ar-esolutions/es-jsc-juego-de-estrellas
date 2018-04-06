@@ -33,7 +33,7 @@ public class App {
 
 	@Bean
 	public Docket api() {
-		final ApiInfo apiInfo =new ApiInfoBuilder()
+		final ApiInfo apiInfo = new ApiInfoBuilder()
 				.title("ESolutions  Java Starters Challenge")
 				.description("Desafío de programación Java basado en dominio de \"Partido de las estrellas\"")
 				.version("1.0")

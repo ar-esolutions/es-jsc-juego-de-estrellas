@@ -2,10 +2,10 @@
 
 --changeset mpianello:1
 CREATE TABLE matches (
-	year              INTEGER   PRIMARY KEY,
-	day_of_year       INTEGER   NOT NULL CHECK (day_of_year BETWEEN 1 AND 366),
-	id_equipo_1       INTEGER,
-	id_equipo_2       INTEGER
+	year        INTEGER PRIMARY KEY,
+	day_of_year INTEGER NOT NULL CHECK (day_of_year BETWEEN 1 AND 366),
+	id_equipo_1 INTEGER,
+	id_equipo_2 INTEGER
 );
 
 --changeset mpianello:2
