@@ -1,0 +1,26 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:dev;MODE=Oracle
+    username: jsc
+    password: jsc00
+  h2:
+    console:
+      enabled: true
+      path: /db
+
+liquibase:
+  drop-first: true
+  change-log: classpath:db/changelog/master.xml
+
+endpoints:
+  liquibase:
+    enabled: true
+
+security:
+  basic:
+    enabled: false
+
+h2.port: 6000
