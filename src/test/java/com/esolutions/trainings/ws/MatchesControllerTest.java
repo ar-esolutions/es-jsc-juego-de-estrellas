@@ -36,7 +36,7 @@ public class MatchesControllerTest {
 	@Test
 	public void test_solve_Transition_Leap() {
 		MatchesController controller = new MatchesController(null);
-		String date = controller.solve(1950, 256);
-		Assert.assertEquals("26-09-1950", date);
+		String date = controller.solve(1950, 40);
+		Assert.assertEquals("22-02-1950", date);
 	}
 }
