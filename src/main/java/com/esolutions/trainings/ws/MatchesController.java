@@ -72,14 +72,12 @@ public class MatchesController {
 				dias += 1;
 			}
 
-			if (sumatoria + dias <= day) {
+			if (sumatoria + dias < day) {
 				sumatoria += dias;
 			} else {
 				break;
 			}
 		}
-
-		String date = (day - sumatoria) + "-" + (month-1) + year;
 
 		GregorianCalendar cal = (GregorianCalendar) GregorianCalendar.getInstance();
 		cal.set(GregorianCalendar.YEAR, year);

@@ -39,4 +39,11 @@ public class MatchesControllerTest {
 		String date = controller.solve(1950, 40);
 		Assert.assertEquals("22-02-1950", date);
 	}
+	
+	@Test
+	public void test_solve_Gregorian_LastDayOfMonth() {
+		MatchesController controller = new MatchesController(null);
+		String date = controller.solve(2016, 366);
+		Assert.assertEquals("31-12-2016", date);
+	}
 }
