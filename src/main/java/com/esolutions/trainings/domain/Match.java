@@ -1,4 +1,4 @@
-package com.esolutions.trainings.logic;
+package com.esolutions.trainings.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

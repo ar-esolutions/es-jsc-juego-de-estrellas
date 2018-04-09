@@ -1,0 +1,32 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:jsc;MODE=Oracle
+    username: jsc
+    password: jsc00
+    platform: h2
+  h2:
+    console:
+      enabled: true
+      path: /db
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: none
+
+liquibase:
+  drop-first: true
+  change-log: classpath:db/changelog/master.xml
+
+endpoints:
+  liquibase:
+    enabled: true
+
+security:
+  basic:
+    enabled: false
+
+h2.port: 6000

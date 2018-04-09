@@ -1,7 +1,7 @@
 package com.esolutions.trainings.ws;
 
 import com.esolutions.trainings.db.MatchRepository;
-import com.esolutions.trainings.logic.Match;
+import com.esolutions.trainings.domain.Match;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
