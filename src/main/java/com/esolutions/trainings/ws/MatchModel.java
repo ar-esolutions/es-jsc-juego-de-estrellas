@@ -6,6 +6,7 @@ import io.swagger.annotations.ApiModel;
 public class MatchModel {
 	private Integer year;
 	private Integer dayOfYear;
+	private String date;
 
 	public Integer getYear() {
 		return year;
@@ -21,5 +22,13 @@ public class MatchModel {
 
 	public void setDayOfYear(Integer dayOfYear) {
 		this.dayOfYear = dayOfYear;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
 	}
 }
