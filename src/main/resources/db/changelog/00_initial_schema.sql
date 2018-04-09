@@ -29,7 +29,7 @@ INSERT INTO matches (year, day_of_year) VALUES (1946, 136);
 INSERT INTO matches (year, day_of_year) VALUES (1947, 118);
 INSERT INTO matches (year, day_of_year) VALUES (1948, 4);
 INSERT INTO matches (year, day_of_year) VALUES (1949, 76);
-INSERT INTO matches (year, day_of_year) VALUES (1950, 254);
+INSERT INTO matches (year, day_of_year) VALUES (1950, 40);
 INSERT INTO matches (year, day_of_year) VALUES (1951, 309);
 INSERT INTO matches (year, day_of_year) VALUES (1952, 324);
 INSERT INTO matches (year, day_of_year) VALUES (1953, 155);
