@@ -55,20 +55,17 @@ _Salida:_ 12-09-1980
 Dado un listado de jugadores con nombre y apellido, devolver un listado de apellidos repetidos.
 
 #### Ejemplo
-Dada la siguiente tabla:  
+Dada el siguiente listado de jugadores:  
 
-| Id | Name |
-| :---: | :---------: |
-| 1 | **Alvarez**, Jose |
-| 2 | **Paredes**,Jorge |
-| 3 | Romario,Luis |
-| 4 | **Alvarez** ,Marcos |
-| 5 | Michellin,Agustin |
-| 6 | **Alvarez**, Nicolas |
-| 7 | **Paredes**, Nicolas |
-| ... | ... |
+1. **Alvarez**, Joseph
+2. **Paredes**,Jorge
+3. Romario,Luis
+4. **Alvarez** ,Marcos
+5. Michellin,Agustin
+6. **Alvarez**, Nicolas
+7. **Paredes**, Nicolas
+
 _Salida:_ ["Alvarez", "Paredes"]
-
 
 ##### Endpoint _GET_ /players/last-name/repeated
 ````json
@@ -78,7 +75,21 @@ _Salida:_ ["Alvarez", "Paredes"]
 ````
 
 ### Requerimiento 3
+Dado que los algunos de los jugadores participaron en más de un partido, se quiere obtener el ranking _top 10_ de los jugadores con mayor cantidad de juegos disputados, ordenado por dicha cantidad.
 
+#### Ejemplo
+Dada la siguiente tabla:
+
+| Player | Year |
+| :---: | :---------: |
+| Alvarez, Joseph | 2001 |
+| Paredes, Jorge | 2001 |
+| Alvarez, Joseph | 2003 |
+| Otro, Jugador | 2003 |
+| Paredes, Jorge | 2003 |
+| Alvarez, Joseph | 2006 |
+
+_Salida:_ [{name: "Alvarez", played: 3}, {name: "Paredes", played: 2}, {name: "Otro", played: 1}]
 
 ##### Endpoint _GET_ /players/ranking
 
