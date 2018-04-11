@@ -99,11 +99,14 @@ INSERT INTO matches (year, day_of_year) VALUES (2016, 241);
 INSERT INTO matches (year, day_of_year) VALUES (2017, 210);
 INSERT INTO matches (year, day_of_year) VALUES (2018, 187);
 
+COMMIT;
+
 --changeset grios:3
 CREATE TABLE players (
 	id   INTEGER PRIMARY KEY,
 	name VARCHAR2(100) NOT NULL UNIQUE
 );
+
 --changeset grios:4
 INSERT INTO players (id, name) VALUES (1, 'aguilar,francisco');
 INSERT INTO players (id, name) VALUES (2, 'alarcón,salomón');
@@ -197,4 +200,4 @@ INSERT INTO players (id, name) VALUES (98, 'peeres,lucas');
 INSERT INTO players (id, name) VALUES (99, 'aguilar,dorantes');
 INSERT INTO players (id, name) VALUES (100, 'camarena,dorantes');
 
-commit;
+COMMIT;
