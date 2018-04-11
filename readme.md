@@ -75,9 +75,10 @@ _Salida:_ ["Alvarez", "Paredes"]
 ````
 
 ### Requerimiento 3
-Dado que los algunos de los jugadores participaron en más de un partido, se quiere obtener el ranking _top 10_ de los jugadores con mayor cantidad de juegos disputados, ordenado por dicha cantidad.
+Dado que algunos de los jugadores participaron en más de un partido, se quiere obtener el ranking _top 10_ de los jugadores con mayor cantidad de juegos disputados por equipo, ordenado por dicha cantidad.
 
 #### Ejemplo
+Dado que el usuario seleccionó el equipo 'Estrellas de Europa'
 Dada la siguiente tabla:
 
 | Player | Year |
@@ -96,6 +97,7 @@ _Salida:_ [{name: "Alvarez, Joseph", played: 3}, {name: "Paredes, Jorge", played
 Top 10 jugadores con mayor cantidad de partidos
 ````json
 {
+    "team": "Estrellas de Europa",
     "players": [
         {"name": "Acevedo, Juan", "played": 15},
         {"name": "Perez, Carlos", "played": 13}
