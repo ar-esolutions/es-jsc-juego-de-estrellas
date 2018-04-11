@@ -89,7 +89,7 @@ Dada la siguiente tabla:
 | Paredes, Jorge | 2003 |
 | Alvarez, Joseph | 2006 |
 
-_Salida:_ [{name: "Alvarez", played: 3}, {name: "Paredes", played: 2}, {name: "Otro", played: 1}]
+_Salida:_ [{name: "Alvarez, Joseph", played: 3}, {name: "Paredes, Jorge", played: 2}, {name: "Otro, Jugador", played: 1}]
 
 ##### Endpoint _GET_ /players/ranking
 
@@ -97,7 +97,7 @@ Top 10 jugadores con mayor cantidad de partidos
 ````json
 {
     "players": [
-        {"name": "Acevedo,Juan", "played": 15},
+        {"name": "Acevedo, Juan", "played": 15},
         {"name": "Perez, Carlos", "played": 13}
     ]
 }
