@@ -10,6 +10,7 @@ target/
 *.iml
 
 # files & directories created by Eclipse
+bin/
 .settings/
 *.classpath
 *.project
