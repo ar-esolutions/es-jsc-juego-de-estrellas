@@ -9,6 +9,36 @@ CREATE TABLE matches (
 );
 
 --changeset mpianello:2
+INSERT INTO matches (year, day_of_year) VALUES (1900, 60);
+INSERT INTO matches (year, day_of_year) VALUES (1901, 140);
+INSERT INTO matches (year, day_of_year) VALUES (1902, 323);
+INSERT INTO matches (year, day_of_year) VALUES (1903, 256);
+INSERT INTO matches (year, day_of_year) VALUES (1904, 121);
+INSERT INTO matches (year, day_of_year) VALUES (1905, 45);
+INSERT INTO matches (year, day_of_year) VALUES (1906, 2);
+INSERT INTO matches (year, day_of_year) VALUES (1907, 27);
+INSERT INTO matches (year, day_of_year) VALUES (1908, 341);
+INSERT INTO matches (year, day_of_year) VALUES (1909, 18);
+INSERT INTO matches (year, day_of_year) VALUES (1910, 160);
+INSERT INTO matches (year, day_of_year) VALUES (1911, 170);
+INSERT INTO matches (year, day_of_year) VALUES (1912, 83);
+INSERT INTO matches (year, day_of_year) VALUES (1913, 178);
+INSERT INTO matches (year, day_of_year) VALUES (1914, 67);
+INSERT INTO matches (year, day_of_year) VALUES (1915, 69);
+INSERT INTO matches (year, day_of_year) VALUES (1916, 222);
+INSERT INTO matches (year, day_of_year) VALUES (1917, 301);
+INSERT INTO matches (year, day_of_year) VALUES (1918, 13);
+INSERT INTO matches (year, day_of_year) VALUES (1919, 29);
+INSERT INTO matches (year, day_of_year) VALUES (1920, 10);
+INSERT INTO matches (year, day_of_year) VALUES (1921, 221);
+INSERT INTO matches (year, day_of_year) VALUES (1922, 14);
+INSERT INTO matches (year, day_of_year) VALUES (1923, 87);
+INSERT INTO matches (year, day_of_year) VALUES (1924, 99);
+INSERT INTO matches (year, day_of_year) VALUES (1925, 45);
+INSERT INTO matches (year, day_of_year) VALUES (1926, 100);
+INSERT INTO matches (year, day_of_year) VALUES (1927, 363);
+INSERT INTO matches (year, day_of_year) VALUES (1928, 212);
+INSERT INTO matches (year, day_of_year) VALUES (1929, 15);
 INSERT INTO matches (year, day_of_year) VALUES (1930, 16);
 INSERT INTO matches (year, day_of_year) VALUES (1931, 13);
 INSERT INTO matches (year, day_of_year) VALUES (1932, 67);
