@@ -21,8 +21,6 @@ import java.util.GregorianCalendar;
 public class MatchesController {
 
 	private static final int TRANSITION_YEAR = 1950;
-	private static SimpleDateFormat FORMAT = new SimpleDateFormat("dd-MM-yyyy");
-
 	private final MatchRepository matchRepository;
 
 	@Autowired
@@ -46,24 +44,29 @@ public class MatchesController {
 
 	String solve(int year, int day){
 		boolean isLeapYear = false;
-		if (year >= 1930 && year <= 2018) {
+		if (year >= 1900 && year <= 2018) {
 			if (year > TRANSITION_YEAR) {
 				isLeapYear = ((year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0));
-				return FORMAT.format(calculateDate(year, day, isLeapYear));
+				return calculateDate(year, day, isLeapYear);
 			} else if (year < TRANSITION_YEAR) {
 				isLeapYear = year % 4 == 0;
-				return FORMAT.format(calculateDate(year, day, isLeapYear));
+				return calculateDate(year, day, isLeapYear);
 			} else {
-				return FORMAT.format(calculateDate(year, day, isLeapYear));
+				return calculateDate(year, day, isLeapYear);
 			}
 		} else {
 			return "Year out of range";
 		}
 	}
 
-	Date calculateDate(int year, int day, boolean isLeapYear) {
+	String calculateDate(int year, int day, boolean isLeapYear) {
 		int sumatoria = 0;
 		int month = 1;
+		
+		// In 1950, February started on the 14th
+		if (year == TRANSITION_YEAR && day > 31) {
+			day += 13;
+		}
 
 		for (month = 1; month <= 12; month ++) {
 			int dias = getDaysInMonth(month);
@@ -73,23 +76,19 @@ public class MatchesController {
 			}
 
 			if (sumatoria + dias < day) {
-				sumatoria += dias;
+				sumatoria += dias;	
 			} else {
 				break;
 			}
 		}
 
-		GregorianCalendar cal = (GregorianCalendar) GregorianCalendar.getInstance();
-		cal.set(GregorianCalendar.YEAR, year);
-		cal.set(GregorianCalendar.MONTH, month -1);
-		cal.set(GregorianCalendar.DAY_OF_MONTH, day - sumatoria);
+		return formatWithTwoDigit(day - sumatoria) + "-" + formatWithTwoDigit(month) + "-" + year;
+	}
 
-		// In 1950, February started on the 14th
-		if (year == TRANSITION_YEAR && day > 31) {
-			cal.add(GregorianCalendar.DAY_OF_YEAR, 13);
-		}
+	String formatWithTwoDigit(int val) {
+		String value = val < 10 ? "0" + val : String.valueOf(val);
 
-		return cal.getTime();
+		return value;
 	}
 
 	int getDaysInMonth(int month) {

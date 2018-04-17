@@ -22,8 +22,8 @@ public class MatchesControllerTest {
 	@Test
 	public void test_solve_Julian_Leap() {
 		MatchesController controller = new MatchesController(null);
-		String date = controller.solve(1948, 256);
-		Assert.assertEquals("12-09-1948", date);
+		String date = controller.solve(1900, 60);
+		Assert.assertEquals("29-02-1900", date);
 	}
 	
 	@Test
@@ -34,7 +34,7 @@ public class MatchesControllerTest {
 	}
 	
 	@Test
-	public void test_solve_Transition_Leap() {
+	public void test_solve_Transition() {
 		MatchesController controller = new MatchesController(null);
 		String date = controller.solve(1950, 40);
 		Assert.assertEquals("22-02-1950", date);
