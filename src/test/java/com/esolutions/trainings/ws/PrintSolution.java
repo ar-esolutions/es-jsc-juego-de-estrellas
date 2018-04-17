@@ -9,7 +9,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 @RunWith(SpringRunner.class)
 public class PrintSolution {
-	private static final Integer[] LIMITS = {1930, 2018};
+	private static final Integer[] LIMITS = {1900, 2018};
 
 	@Autowired
 	private MatchesController controller;
@@ -18,8 +18,9 @@ public class PrintSolution {
 	@Test
 	public void print_solution() {
 		for (int year = LIMITS[0]; year <= LIMITS[1]; year++) {
-			final String date = this.controller.matchOfYear(year).getDate();
-			System.out.println(year + ", " + date);
+			final MatchModel model = this.controller.matchOfYear(year);
+
+			System.out.println(year + ", " + model.getDayOfYear() + ", " + model.getDate());
 		}
 	}
 }
