@@ -33,7 +33,6 @@ public class PlayersController {
 				.stream()
 				.filter(entry -> entry.getValue() > 1)
 				.map(Map.Entry::getKey)
-				.sorted()
 				.collect(Collectors.toList());
 
 		RepeatedLastNameModel model = new RepeatedLastNameModel();
