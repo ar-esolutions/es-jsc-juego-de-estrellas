@@ -36,4 +36,26 @@ public class PrintSolution {
 
 		lastNames.forEach(System.out::println);
 	}
+
+	/**
+	 * Ojo que se resuelve facil con query:
+	 * SELECT count(*), team, (SELECT name FROM players p WHERE p.id = player_id) player
+	 * FROM matches_played
+	 * GROUP BY team, player_id
+	 * ORDER BY 2,1 DESC, 3;
+	 */
+	@Test
+	public void print_req3() {
+		final RankingModel ranking = playersController.ranking();
+
+		printRankingOf("AME", ranking.getEstrellas_de_america().getPlayers());
+		printRankingOf("EU", ranking.getEstrellas_de_europa().getPlayers());
+	}
+
+	private void printRankingOf(String team, List<PlayerModel> list) {
+		for (int i = 0; i < list.size(); i++) {
+			PlayerModel player = list.get(i);
+			System.out.println(team + ", " + i + ", " + player.getName() + ", " + player.getPlayed());
+		}
+	}
 }
