@@ -75,33 +75,64 @@ _Salida:_ ["Alvarez", "Paredes"]
 ````
 
 ### Requerimiento 3
-Dado que algunos de los jugadores participaron en más de un partido, se quiere obtener el ranking _top 10_ de los jugadores con mayor cantidad de juegos disputados por equipo, ordenado por dicha cantidad.
+Dado que algunos de los jugadores participaron en más de un partido, se quiere obtener el ranking _top 10_ de los jugadores con mayor cantidad de juegos disputados por cada equipo, ordenado por dicha cantidad.
+En caso de haber más de un jugador con la misma cantidad de partidos en un equipo, se debe ordenar a los mismos alfabéticamente por apellido.
 
 #### Ejemplo
-Dado que el usuario seleccionó el equipo 'Estrellas de Europa'
-Dada la siguiente tabla:
 
-| Player | Year |
-| :---: | :---------: |
-| Alvarez, Joseph | 2001 |
-| Paredes, Jorge | 2001 |
-| Alvarez, Joseph | 2003 |
-| Otro, Jugador | 2003 |
-| Paredes, Jorge | 2003 |
-| Alvarez, Joseph | 2006 |
+Dado los siguientes datos:
 
-_Salida:_ [{name: "Alvarez, Joseph", played: 3}, {name: "Paredes, Jorge", played: 2}, {name: "Otro, Jugador", played: 1}]
+| Team | Player | Year |
+| :---: | :---: | :---------: |
+| Estrellas de Europa | Alvarez, Joseph | 2001 |
+| Estrellas de Europa | Paredes, Jorge | 2001 |
+| Estrellas de Europa | Alvarez, Joseph | 2003 |
+| Estrellas de America | Tevez, Carlos | 2003 |
+| Estrellas de America | Otro, Jugador | 2003 |
+| Estrellas de Europa | Paredes, Jorge | 2003 |
+| Estrellas de Europa | Alvarez, Joseph | 2006 |
+| Estrellas de America | Tevez, Carlos | 2006 |
+| Estrellas de America | Tevez, Carlos | 2007 |
+| Estrellas de Europa | Otro, Jugador | 2007 |
+
+_Salida:_ Estrellas de Europa [Alvarez, Joseph: 3 ; Paredes, Jorge: 2 ; Otro, Jugador: 1], Estrellas de America: [Tevez, Carlos: 3 ; Otro, Jugador: 1]
 
 ##### Endpoint _GET_ /players/ranking
 
 Top 10 jugadores con mayor cantidad de partidos
 ````json
 {
-    "team": "Estrellas de Europa",
-    "players": [
-        {"name": "Acevedo, Juan", "played": 15},
-        {"name": "Perez, Carlos", "played": 13}
-    ]
+    "estrellas_de_europa": {
+        "players": [
+            {"name": "Acevedo, Juan", "played": 15},
+            {"name": "Perez, Carlos", "played": 13}
+        ]
+    },
+    "estrellas_de_america": {
+      "players": [
+          {"name": "Alvarez, Joseph", "played": 16},
+          {"name": "Paredes, Jorge", "played": 9}
+      ]
+    }
+}
+````
+
+### Requerimiento 4
+La entidad que regula los partidos de las estrellas ha decidio reconocer otros partidos anteriores como "Partido de las Estrellas".
+Es decir que a los partidos reconocidos entre 1930 y 2018, se le suman partidos entre 1900 y 1929.
+
+Los reglas de dichos partidos se mantienen, siendo cada año un día aleatorio y con el mismo tipo de calendario que antes.
+
+> **Limites:** 1900 <= year <= 2018
+
+Luego presentar el resultado en formato **dd-mm-yyyy**, donde "dd" es el día en 2 dígitos, "mm" el mes en 2 dígitos, y "yyyy" el año.
+
+##### Endpoint _GET_ /matches/{year}
+````json
+{
+    "year": 2016, 
+    "dayOfYear": 32, 
+    "date": "01-02-2016"
 }
 ````
 
@@ -109,12 +140,12 @@ Top 10 jugadores con mayor cantidad de partidos
 1. Datos para usar cliente de BD
     1. Driver: H2
     2. Url: jdbc:h2:mem:jsc
-    3. Port: 6000
+    3. Port: 6060
     4. User: jsc
     5. Password: jsc00
 2. Consola de bd embebida
-    1. Url: http://localhost:8080/db
+    1. Url: http://localhost:9090/db
     2. _Driver Class_: org.h2.Driver
-    3. _JDBC URL_: jdbc:h2:tcp://localhost:6000/mem:jsc
+    3. _JDBC URL_: jdbc:h2:tcp://localhost:6060/mem:jsc
     4. _User Name_: jsc
     5. _Password_: jsc00
