@@ -25,7 +25,7 @@ Se cuenta con los siguientes datos de ejemplo:
 
 Dado un único input: en año (dentro del rango válido), calcular la fecha en que cae ese partido para el año dado.
 
-> **Limites:** 1900 <= year <= 2018
+> **Limites:** 1930 <= year <= 2018
 
 Luego presentar el resultado en formato **dd-mm-yyyy**, donde "dd" es el día en 2 dígitos, "mm" el mes en 2 dígitos, y "yyyy" el año.
 
