@@ -75,19 +75,18 @@ public class PlayersController {
 
 	private static TeamModel buildModelFrom(Map<Player, Long> matchesByPlayer) {
 		return matchesByPlayer.entrySet()
-					.stream()
-					.sorted(Comparator.comparingLong(Map.Entry::getValue))
-					.map(entry -> {
-						final PlayerModel playerModel = new PlayerModel();
-						playerModel.setName(entry.getKey().getName());
-						playerModel.setPlayed(entry.getValue());
-						return playerModel;
-					})
-					.collect(Collectors.collectingAndThen(Collectors.toList(), list -> {
-						final TeamModel teamModel = new TeamModel();
-						teamModel.setPlayers(list);
-						return teamModel;
-					}));
+				.stream()
+				.sorted(byMatchesAndThenByName())
+				.limit(10)
+				.map(entry -> PlayerModel.build(entry.getKey().getName(), entry.getValue()))
+				.collect(Collectors.collectingAndThen(Collectors.toList(), TeamModel::build));
+	}
+
+	private static Comparator<Map.Entry<Player, Long>> byMatchesAndThenByName() {
+		return Comparator
+				.comparingLong((Map.Entry<Player, Long> entry) -> entry.getValue())
+				.reversed()
+				.thenComparing(entry -> entry.getKey().getName());
 	}
 
 	private static <T> Collector<T, ?, List<T>> toSortedList(Comparator<T> sorterKey) {

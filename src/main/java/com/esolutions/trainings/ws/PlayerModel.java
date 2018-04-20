@@ -19,4 +19,11 @@ public class PlayerModel {
 	public void setPlayed(Long played) {
 		this.played = played;
 	}
+
+	static PlayerModel build(String name, Long played) {
+		final PlayerModel model = new PlayerModel();
+		model.setName(name);
+		model.setPlayed(played);
+		return model;
+	}
 }

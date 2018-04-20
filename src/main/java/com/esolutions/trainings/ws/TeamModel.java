@@ -12,4 +12,10 @@ public class TeamModel {
 	public void setPlayers(List<PlayerModel> players) {
 		this.players = players;
 	}
+
+	static TeamModel build(List<PlayerModel> list) {
+		final TeamModel teamModel = new TeamModel();
+		teamModel.setPlayers(list);
+		return teamModel;
+	}
 }
