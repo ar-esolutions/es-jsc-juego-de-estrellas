@@ -29,4 +29,4 @@ security:
   basic:
     enabled: false
 
-h2.port: 6000
+h2.port: 6060
